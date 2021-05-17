@@ -1,6 +1,12 @@
 on:
   rss:
-    url: https://github.com/yichengchen/clashX/releases.atom
+    url:
+      - https://github.com/yichengchen/clashX/releases.atom
+      - https://github.com/Kr328/ClashForAndroid/releases.atom
+      - https://github.com/x2rr/funds/releases.atom
+      - https://github.com/MustangYM/WeChatExtension-ForMac/releases.atom
+    config:
+      limit: 15
 jobs:
   request:
     name: Make a HTTP Request
@@ -13,7 +19,7 @@ jobs:
           method: POST
           body: |
             {
-              "title":"clashx更新啦！${{ on.rss.outputs.link }}", 
+              "title":"==== 更新 ==== ${{ on.rss.outputs.link }}", 
               "desp": "${{ on.rss.outputs.title }}",
             }
-   
+      
